@@ -10,7 +10,8 @@
       border="start"
     >
       <div class="text-body-2 text-md-body-1">
-        於2025/8/27 23:59（UTC-0）前，發送任意 Airdrop & Quiz（限使用 COS）即可參與抽獎!
+        於2025/8/27 23:59（UTC-0）前，發送任意 Airdrop & Quiz（限使用
+        COS）即可參與抽獎!
       </div>
     </v-alert>
 

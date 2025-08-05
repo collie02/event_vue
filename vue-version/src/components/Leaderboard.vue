@@ -3,15 +3,21 @@
     <!-- Section Title -->
     <div class="d-flex align-center mb-6">
       <v-icon color="accent" size="36" class="mr-2">mdi-wallet-giftcard</v-icon>
-      <h2 class="text-h5 text-md-h4 font-weight-regular black--text text--darken-3">
+      <h2
+        class="text-h5 text-md-h4 font-weight-regular black--text text--darken-3"
+      >
         Airdrop排行榜
       </h2>
     </div>
 
     <!-- Desktop Layout -->
-    <v-card class="d-none d-md-block bg-cos-grey-card pa-4" elevation="0" style="min-height: 400px;">
+    <v-card
+      class="d-none d-md-block bg-cos-grey-card pa-4"
+      elevation="0"
+      style="min-height: 400px"
+    >
       <v-row>
-        <v-col 
+        <v-col
           v-for="user in leaderboardData"
           :key="user.rank"
           cols="6"
@@ -20,26 +26,31 @@
           <v-card class="bg-cos-grey-light pa-4" elevation="0">
             <div class="d-flex align-center">
               <!-- Rank -->
-              <div class="text-h5 font-weight-regular black--text text--darken-3 mr-4" style="min-width: 32px;">
+              <div
+                class="text-h5 font-weight-regular black--text text--darken-3 mr-4"
+                style="min-width: 32px"
+              >
                 {{ user.rank }}
               </div>
-              
+
               <!-- Avatar -->
               <v-avatar size="64" class="mr-4">
                 <v-img :src="user.avatar" :alt="user.name"></v-img>
               </v-avatar>
-              
+
               <!-- Name -->
               <div class="flex-grow-1">
                 <div class="text-body-1 black--text text--darken-3">
                   {{ user.name }}
                 </div>
               </div>
-              
+
               <!-- Amount -->
               <div class="text-right">
                 <div class="text-h5 cos-blue font-weight-regular">
-                  {{ user.amount.split(',')[0] }},{{ user.amount.split(',')[1] }}
+                  {{ user.amount.split(",")[0] }},{{
+                    user.amount.split(",")[1]
+                  }}
                 </div>
                 <div class="text-caption black--text text--lighten-1">COS</div>
               </div>
@@ -55,7 +66,7 @@
       <v-card-title class="grey darken-1 white--text">
         <h3 class="text-body-1 font-weight-bold">Airdrop排行榜</h3>
       </v-card-title>
-      
+
       <!-- List Items -->
       <v-list>
         <v-list-item
@@ -65,10 +76,10 @@
         >
           <template v-slot:prepend>
             <!-- Rank/Badge -->
-            <div class="mr-4" style="width: 28px;">
-              <v-img 
+            <div class="mr-4" style="width: 28px">
+              <v-img
                 v-if="user.badge"
-                :src="`https://api.builder.io/api/v1/image/assets/TEMP/badge-${user.badge}.png`" 
+                :src="`https://api.builder.io/api/v1/image/assets/TEMP/badge-${user.badge}.png`"
                 width="28"
                 height="28"
                 @error="handleImageError"
@@ -80,7 +91,7 @@
                 {{ user.rank }}
               </div>
             </div>
-            
+
             <!-- Avatar -->
             <v-avatar size="24" class="mr-2">
               <v-img :src="user.avatar" :alt="user.name"></v-img>
@@ -115,17 +126,17 @@
 </template>
 
 <script setup lang="ts">
-import { ref } from 'vue'
+import { ref } from "vue";
 
 interface LeaderboardUser {
-  rank: number
-  name: string
-  amount: string
-  avatar: string
-  badge?: string
+  rank: number;
+  name: string;
+  amount: string;
+  avatar: string;
+  badge?: string;
 }
 
-const currentPage = ref(1)
+const currentPage = ref(1);
 
 const leaderboardData: LeaderboardUser[] = [
   {
@@ -191,14 +202,14 @@ const leaderboardData: LeaderboardUser[] = [
     amount: "999,999",
     avatar: "https://i.pravatar.cc/150?img=10",
   },
-]
+];
 
 const handleImageError = (event: Event) => {
-  const target = event.target as HTMLImageElement
+  const target = event.target as HTMLImageElement;
   if (target.parentElement) {
-    target.parentElement.style.display = 'none'
+    target.parentElement.style.display = "none";
   }
-}
+};
 </script>
 
 <style scoped>
