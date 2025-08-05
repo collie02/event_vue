@@ -1,14 +1,15 @@
 <template>
   <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mb-8">
-    <div 
-      v-for="stat in stats" 
+    <div
+      v-for="stat in stats"
       :key="stat.label"
-      class="bg-white rounded-lg shadow-sm border border-gray-100 p-4 text-center"
+      class="bg-white rounded border shadow-sm p-4 text-center"
+      style="box-shadow: 0 1px 5px 0 #B0C3FF"
     >
       <div class="text-2xl font-normal text-black/87 mb-1">
         {{ stat.value }}
       </div>
-      <div class="text-sm text-black/54 leading-tight">
+      <div class="text-sm text-black/87 leading-tight">
         {{ stat.label }}
       </div>
     </div>
