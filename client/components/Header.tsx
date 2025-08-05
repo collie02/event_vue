@@ -20,7 +20,9 @@ export default function Header() {
         </div>
 
         {/* Title */}
-        <h1 className="text-xl text-black/87 font-normal flex-1 md:flex-none ml-4 md:ml-0">Channel VIP</h1>
+        <h1 className="text-xl text-black/87 font-normal flex-1 md:flex-none ml-4 md:ml-0">
+          Channel VIP
+        </h1>
 
         {/* Spacer - Hidden on Mobile */}
         <div className="hidden md:flex flex-1" />

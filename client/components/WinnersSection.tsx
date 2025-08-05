@@ -3,7 +3,7 @@ import { useState } from "react";
 
 export default function WinnersSection() {
   const [currentPage, setCurrentPage] = useState(1);
-  
+
   const winnersData = Array.from({ length: 11 }, (_, i) => ({
     rank: i + 1,
     name: "???",
@@ -72,11 +72,14 @@ export default function WinnersSection() {
           <div className="bg-gray-400 px-4 py-3">
             <h3 className="text-white font-bold text-base">本期幸運得主</h3>
           </div>
-          
+
           {/* List Items */}
           <div className="p-4 space-y-3">
             {winnersData.map((winner, index) => (
-              <div key={index} className="flex items-center gap-4 py-1 border-b border-gray-100 last:border-b-0">
+              <div
+                key={index}
+                className="flex items-center gap-4 py-1 border-b border-gray-100 last:border-b-0"
+              >
                 {/* Rank */}
                 <div className="w-7 h-8 flex items-center justify-center text-black/60 text-xl font-bold">
                   {winner.rank}
@@ -94,9 +97,7 @@ export default function WinnersSection() {
 
                 {/* Amount */}
                 <div className="text-right flex-shrink-0">
-                  <div className="text-black/60 text-sm">
-                    {winner.amount}
-                  </div>
+                  <div className="text-black/60 text-sm">{winner.amount}</div>
                 </div>
               </div>
             ))}
@@ -109,21 +110,21 @@ export default function WinnersSection() {
         <button className="w-10 h-10 flex items-center justify-center bg-gray-100 rounded shadow-sm">
           <ChevronLeft size={20} className="text-gray-500" />
         </button>
-        
+
         {[1, 2, 3].map((page) => (
           <button
             key={page}
             onClick={() => setCurrentPage(page)}
             className={`w-10 h-10 flex items-center justify-center rounded shadow-sm text-sm ${
-              currentPage === page 
-                ? 'bg-cos-blue text-white' 
-                : 'bg-gray-100 text-black/87'
+              currentPage === page
+                ? "bg-cos-blue text-white"
+                : "bg-gray-100 text-black/87"
             }`}
           >
             {page}
           </button>
         ))}
-        
+
         <button className="w-10 h-10 flex items-center justify-center bg-gray-100 rounded shadow-sm">
           <ChevronRight size={20} className="text-gray-500" />
         </button>

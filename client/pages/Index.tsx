@@ -26,10 +26,14 @@ export default function Index() {
           {/* Activity Description */}
           <div className="py-4">
             <p className="text-sm md:text-base text-black/60 leading-relaxed mb-6">
-              感謝大家一路以來的熱情參與，截至目前為止，平台已累計發送超過 1300 萬 COS 的 Airdrop。每一次的互動與交流都讓COS生態更加活絡，也讓社群活躍度大幅提升。
+              感謝大家一路以來的熱情參與，截至目前為止，平台已累計發送超過 1300
+              萬 COS 的
+              Airdrop。每一次的互動與交流都讓COS生態更加活絡，也讓社群活躍度大幅提升。
             </p>
             <p className="text-sm md:text-base text-black/60 leading-relaxed mb-8">
-              為了回饋大家對COS的支持，我們推出全新抽獎活動。活動期間內，只要發送任一 Airdrop 或 Quiz（限使用 COS），即可獲得抽獎資格。馬上發送 Airdrop，下一個幸運得主可能就是你。
+              為了回饋大家對COS的支持，我們推出全新抽獎活動。活動期間內，只要發送任一
+              Airdrop 或 Quiz（限使用 COS），即可獲得抽獎資格。馬上發送
+              Airdrop，下一個幸運得主可能就是你。
             </p>
 
             {/* Join Button */}
