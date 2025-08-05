@@ -1,15 +1,20 @@
-import { Info, CheckCircle } from "lucide-react";
-
 export default function AlertNotifications() {
   return (
     <div className="space-y-4 mb-8">
       {/* Blue Alert */}
       <div className="bg-white border border-cos-blue rounded border-l-8 border-l-cos-blue p-4">
         <div className="flex items-start gap-4">
-          <Info size={28} className="text-cos-blue flex-shrink-0 mt-0.5" />
+          <svg
+            className="w-7 h-7 text-cos-blue flex-shrink-0"
+            fill="currentColor"
+            viewBox="0 0 28 28"
+          >
+            <path d="M15.1654 10.5H12.832V8.16665H15.1654V10.5ZM15.1654 19.8333H12.832V12.8333H15.1654V19.8333ZM13.9987 2.33331C12.4666 2.33331 10.9495 2.63508 9.53406 3.22139C8.11859 3.80769 6.83247 4.66705 5.74912 5.7504C3.56119 7.93832 2.33203 10.9058 2.33203 14C2.33203 17.0942 3.56119 20.0616 5.74912 22.2496C6.83247 23.3329 8.11859 24.1923 9.53406 24.7786C10.9495 25.3649 12.4666 25.6666 13.9987 25.6666C17.0929 25.6666 20.0604 24.4375 22.2483 22.2496C24.4362 20.0616 25.6654 17.0942 25.6654 14C25.6654 12.4679 25.3636 10.9508 24.7773 9.53534C24.191 8.11987 23.3316 6.83375 22.2483 5.7504C21.1649 4.66705 19.8788 3.80769 18.4633 3.22139C17.0479 2.63508 15.5308 2.33331 13.9987 2.33331V2.33331Z" />
+          </svg>
           <div className="flex-1">
-            <p className="text-cos-blue text-base leading-relaxed">
-              於N月N日8:00前，發送任意 Airdrop & Quiz 即可參與本週大樂透抽獎!
+            <p className="text-cos-blue text-sm md:text-base leading-relaxed">
+              於2025/8/27 23:59（UTC-0）前，發送任意 Airdrop & Quiz（限使用
+              COS）即可參與抽獎!
             </p>
           </div>
         </div>
@@ -18,13 +23,16 @@ export default function AlertNotifications() {
       {/* Green Alert */}
       <div className="bg-white border border-cos-green rounded border-l-8 border-l-cos-green p-4">
         <div className="flex items-start gap-4">
-          <CheckCircle
-            size={28}
-            className="text-cos-green flex-shrink-0 mt-0.5"
-          />
+          <svg
+            className="w-7 h-7 text-cos-green flex-shrink-0"
+            fill="currentColor"
+            viewBox="0 0 28 28"
+          >
+            <path d="M15.1654 10.5H12.832V8.16668H15.1654V10.5ZM15.1654 19.8333H12.832V12.8333H15.1654V19.8333ZM13.9987 2.33334C12.4666 2.33334 10.9495 2.63511 9.53406 3.22142C8.11859 3.80772 6.83247 4.66708 5.74912 5.75043C3.56119 7.93836 2.33203 10.9058 2.33203 14C2.33203 17.0942 3.56119 20.0617 5.74912 22.2496C6.83247 23.3329 8.11859 24.1923 9.53406 24.7786C10.9495 25.3649 12.4666 25.6667 13.9987 25.6667C17.0929 25.6667 20.0604 24.4375 22.2483 22.2496C24.4362 20.0617 25.6654 17.0942 25.6654 14C25.6654 12.4679 25.3636 10.9508 24.7773 9.53537C24.191 8.1199 23.3316 6.83378 22.2483 5.75043C21.1649 4.66708 19.8788 3.80772 18.4633 3.22142C17.0479 2.63511 15.5308 2.33334 13.9987 2.33334V2.33334Z" />
+          </svg>
           <div className="flex-1">
-            <p className="text-cos-green text-base leading-relaxed">
-              你已獲得本周大樂透抽獎資格，結果將於N月N日公布
+            <p className="text-cos-green text-sm md:text-base leading-relaxed">
+              你已獲得抽獎資格，結果將於 2025/8/28 23:59（UTC-0）前公布
             </p>
           </div>
         </div>

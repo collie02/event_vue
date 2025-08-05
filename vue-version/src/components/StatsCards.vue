@@ -1,24 +1,28 @@
 <template>
-  <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mb-8">
-    <div 
-      v-for="stat in stats" 
-      :key="stat.label"
-      class="bg-white rounded-lg shadow-sm border border-gray-100 p-4 text-center"
-    >
-      <div class="text-2xl font-normal text-black/87 mb-1">
-        {{ stat.value }}
-      </div>
-      <div class="text-sm text-black/54 leading-tight">
-        {{ stat.label }}
-      </div>
-    </div>
-  </div>
+  <v-row class="mb-6">
+    <v-col v-for="stat in stats" :key="stat.label" cols="12" md="4">
+      <v-card
+        elevation="3"
+        class="text-center pa-4"
+        style="box-shadow: 0 1px 5px 0 #b0c3ff !important"
+      >
+        <div
+          class="text-h4 font-weight-regular black--text text--darken-3 mb-1"
+        >
+          {{ stat.value }}
+        </div>
+        <div class="text-body-2 black--text text--darken-3">
+          {{ stat.label }}
+        </div>
+      </v-card>
+    </v-col>
+  </v-row>
 </template>
 
 <script setup lang="ts">
 interface Stat {
-  value: string
-  label: string
+  value: string;
+  label: string;
 }
 
 const stats: Stat[] = [
@@ -34,5 +38,5 @@ const stats: Stat[] = [
     value: "2,346",
     label: "已發送的 Airdrops",
   },
-]
+];
 </script>

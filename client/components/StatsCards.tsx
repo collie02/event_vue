@@ -19,12 +19,13 @@ export default function StatsCards() {
       {stats.map((stat, index) => (
         <div
           key={index}
-          className="bg-white rounded-lg shadow-sm border border-gray-100 p-4 text-center"
+          className="bg-white rounded border shadow-sm p-4 text-center"
+          style={{ boxShadow: "0 1px 5px 0 #B0C3FF" }}
         >
           <div className="text-2xl font-normal text-black/87 mb-1">
             {stat.value}
           </div>
-          <div className="text-sm text-black/54 leading-tight">
+          <div className="text-sm text-black/87 leading-tight">
             {stat.label}
           </div>
         </div>

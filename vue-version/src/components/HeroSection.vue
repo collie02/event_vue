@@ -1,27 +1,26 @@
 <template>
-  <div class="relative w-full mb-8">
-    <div class="relative h-80 md:h-96 rounded-2xl overflow-hidden bg-gradient-to-r from-blue-400 to-purple-500">
-      <img 
-        src="https://api.builder.io/api/v1/image/assets/TEMP/4a0757a9eca2b54e714b83059a30c7b4c4969702?width=1936"
-        alt="Airdrop Festival Car"
-        class="w-full h-full object-cover"
-      />
-      
-      <div class="absolute inset-0 bg-black/20" />
-      <div class="absolute bottom-0 left-0 right-0 p-8 text-white">
-        <div class="max-w-4xl mx-4 text-left">
-          <h1 class="text-3xl md:text-4xl lg:text-5xl font-bold mb-4 leading-tight">
+  <v-img
+    src="https://cdn.builder.io/api/v1/image/assets%2F89b56ce843f84e3d92b9396b0da46246%2Fcc2cb5ced361445a91c6f4fa4082e1c6?format=webp&width=800"
+    height="320"
+    class="d-flex align-end"
+    cover
+    gradient="to bottom, rgba(0,0,0,0.1), rgba(0,0,0,0.3)"
+  >
+    <v-container>
+      <v-row>
+        <v-col cols="12">
+          <h1 class="text-h3 text-md-h2 font-weight-bold text-white mb-2">
             Airdrop 感謝祭
           </h1>
-          <p class="text-base md:text-lg text-white/90">
+          <p class="text-body-1 text-md-h6 text-white text-opacity-90">
             發送 Airdrop & Quiz 獲得抽獎機會
           </p>
-        </div>
-      </div>
-    </div>
-  </div>
+        </v-col>
+      </v-row>
+    </v-container>
+  </v-img>
 </template>
 
 <script setup lang="ts">
-// Hero section 組件邏輯
+// Hero section component logic
 </script>
