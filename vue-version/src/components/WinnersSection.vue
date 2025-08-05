@@ -1,123 +1,104 @@
 <template>
   <div>
     <!-- Section Title -->
-    <div class="flex items-center gap-2 mb-6">
-      <div class="w-11 h-11 text-cos-amber">
-        <svg width="44" height="44" viewBox="0 0 44 44" fill="currentColor">
-          <path d="M27.8669 19.6167L30.4336 29.3333L22.0003 22.3667L13.5669 29.3333L16.1336 19.8L8.43359 13.3833L18.3336 12.8333L22.0003 3.66666L25.6669 12.8333L35.5669 13.3833L27.8669 19.6167ZM25.6669 34.8333H23.8336V29.3333L22.0003 27.5L20.1669 29.3333V34.8333H18.3336C16.3169 34.8333 14.6669 36.4833 14.6669 38.5V40.3333H29.3336V38.5C29.3336 36.4833 27.7019 34.8333 25.6669 34.8333Z"/>
-        </svg>
-      </div>
-      <div class="flex-1">
-        <h2 class="text-xl md:text-2xl font-normal text-black/87">
+    <div class="d-flex align-center mb-6">
+      <v-icon color="accent" size="44" class="mr-2">mdi-trophy-award</v-icon>
+      <div class="flex-grow-1">
+        <h2 class="text-h5 text-md-h4 font-weight-regular black--text text--darken-3">
           本期幸運得主(活動結束後顯示)
         </h2>
-        <p class="text-sm md:text-base text-black/60">
+        <p class="text-body-2 text-md-body-1 black--text text--lighten-1 ma-0">
           獎勵於 2025/6/25 23:59 (UTC+0) 發放
         </p>
       </div>
     </div>
 
     <!-- Desktop Layout -->
-    <div class="hidden md:block">
-      <div class="bg-cos-grey-card rounded p-4 min-h-96">
-        <div class="grid grid-cols-2 gap-2">
-          <div
-            v-for="winner in winnersData"
-            :key="winner.rank"
-            class="bg-cos-grey-light p-4 rounded flex items-center gap-4"
-          >
-            <!-- Rank -->
-            <div class="w-8 h-8 flex items-center justify-center text-black/87 text-xl font-normal">
-              {{ winner.rank }}
-            </div>
-
-            <!-- Avatar -->
-            <div class="w-16 h-16 rounded-full bg-gray-400 flex-shrink-0" />
-
-            <!-- Name -->
-            <div class="flex-1 min-w-0">
-              <div class="text-black/87 text-base truncate">
-                {{ winner.name }}
+    <v-card class="d-none d-md-block bg-cos-grey-card pa-4" elevation="0" style="min-height: 400px;">
+      <v-row>
+        <v-col 
+          v-for="winner in winnersData"
+          :key="winner.rank"
+          cols="6"
+          class="pa-2"
+        >
+          <v-card class="bg-cos-grey-light pa-4" elevation="0">
+            <div class="d-flex align-center">
+              <!-- Rank -->
+              <div class="text-h5 font-weight-regular black--text text--darken-3 mr-4" style="min-width: 32px;">
+                {{ winner.rank }}
+              </div>
+              
+              <!-- Avatar -->
+              <v-avatar size="64" color="grey-lighten-1" class="mr-4"></v-avatar>
+              
+              <!-- Name -->
+              <div class="flex-grow-1">
+                <div class="text-body-1 black--text text--darken-3">
+                  {{ winner.name }}
+                </div>
+              </div>
+              
+              <!-- Amount -->
+              <div class="text-right">
+                <div class="text-h5 cos-blue font-weight-regular">
+                  {{ winner.amount.split(' ')[0] }}
+                </div>
+                <div class="text-caption black--text text--lighten-1">COS</div>
               </div>
             </div>
-
-            <!-- Amount -->
-            <div class="text-right flex-shrink-0">
-              <div class="text-cos-blue text-xl font-normal">
-                {{ winner.amount.split(' ')[0] }}
-              </div>
-              <div class="text-black/38 text-sm">COS</div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
+          </v-card>
+        </v-col>
+      </v-row>
+    </v-card>
 
     <!-- Mobile Layout -->
-    <div class="md:hidden">
-      <div class="bg-white rounded-lg shadow-sm border border-gray-100 overflow-hidden">
-        <!-- Header -->
-        <div class="bg-gray-400 px-4 py-3">
-          <h3 class="text-white font-bold text-base">本期幸運得主</h3>
-        </div>
-        
-        <!-- List Items -->
-        <div class="p-4 space-y-3">
-          <div
-            v-for="winner in winnersData"
-            :key="winner.rank"
-            class="flex items-center gap-4 py-1 border-b border-gray-100 last:border-b-0"
-          >
+    <v-card class="d-block d-md-none" elevation="2">
+      <!-- Header -->
+      <v-card-title class="grey darken-1 white--text">
+        <h3 class="text-body-1 font-weight-bold">本期幸運得主</h3>
+      </v-card-title>
+      
+      <!-- List Items -->
+      <v-list>
+        <v-list-item
+          v-for="(winner, index) in winnersData"
+          :key="winner.rank"
+          :class="{ 'border-b': index < winnersData.length - 1 }"
+        >
+          <template v-slot:prepend>
             <!-- Rank -->
-            <div class="w-7 h-8 flex items-center justify-center text-black/60 text-xl font-bold">
+            <div class="mr-4 text-h5 font-weight-bold black--text text--lighten-1" style="width: 28px; text-align: center;">
               {{ winner.rank }}
             </div>
-
+            
             <!-- Avatar -->
-            <div class="w-6 h-6 rounded-full bg-gray-400 flex-shrink-0" />
+            <v-avatar size="24" color="grey-lighten-1" class="mr-2"></v-avatar>
+          </template>
 
-            <!-- Name -->
-            <div class="flex-1 min-w-0">
-              <div class="text-black/60 text-sm truncate">
-                {{ winner.name }}
-              </div>
-            </div>
+          <!-- Name -->
+          <v-list-item-title class="text-body-2 black--text text--lighten-1">
+            {{ winner.name }}
+          </v-list-item-title>
 
+          <template v-slot:append>
             <!-- Amount -->
-            <div class="text-right flex-shrink-0">
-              <div class="text-black/60 text-sm">{{ winner.amount }}</div>
+            <div class="text-body-2 black--text text--lighten-1">
+              {{ winner.amount }}
             </div>
-          </div>
-        </div>
-      </div>
-    </div>
+          </template>
+        </v-list-item>
+      </v-list>
+    </v-card>
 
     <!-- Pagination -->
-    <div class="flex justify-center items-center gap-2 mt-4">
-      <button class="w-10 h-10 flex items-center justify-center bg-gray-100 rounded shadow-sm">
-        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" class="text-gray-500">
-          <path d="M15.41 16.58L10.83 12L15.41 7.41L14 6L8 12L14 18L15.41 16.58Z" fill="currentColor"/>
-        </svg>
-      </button>
-      
-      <button
-        v-for="page in [1, 2, 3]"
-        :key="page"
-        @click="currentPage = page"
-        :class="`w-10 h-10 flex items-center justify-center rounded shadow-sm text-sm ${
-          currentPage === page
-            ? 'bg-cos-blue text-white'
-            : 'bg-gray-100 text-black/87'
-        }`"
-      >
-        {{ page }}
-      </button>
-      
-      <button class="w-10 h-10 flex items-center justify-center bg-gray-100 rounded shadow-sm">
-        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" class="text-gray-500">
-          <path d="M8.58984 16.58L13.1698 12L8.58984 7.41L9.99984 6L15.9998 12L9.99984 18L8.58984 16.58Z" fill="currentColor"/>
-        </svg>
-      </button>
+    <div class="d-flex justify-center mt-4">
+      <v-pagination
+        v-model="currentPage"
+        :length="3"
+        color="primary"
+        size="small"
+      ></v-pagination>
     </div>
   </div>
 </template>
@@ -141,3 +122,9 @@ const winnersData: Winner[] = Array.from({ length: 11 }, (_, i) => ({
   avatar: null,
 }))
 </script>
+
+<style scoped>
+.border-b {
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+}
+</style>
